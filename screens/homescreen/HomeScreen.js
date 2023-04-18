@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import {HomeScreenStyle} from './HomeScreenStyle';
 import Header from '../../components/home/Header';

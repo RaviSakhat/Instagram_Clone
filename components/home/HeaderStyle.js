@@ -37,7 +37,7 @@ const HeaderStyle = StyleSheet.create({
   unreadBadgeText: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 12
+    fontSize: 9
   }
 });
 
