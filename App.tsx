@@ -1,10 +1,10 @@
 import React from 'react'
 import { AppStyle } from './AppStyle'
-import HomeScreen from './screens/homescreen/HomeScreen'
+import SignedInStack from './navigation'
 
 const App = () => {
   return (
-    <HomeScreen/>
+    <SignedInStack/>
   )
 }
 

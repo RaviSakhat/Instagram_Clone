@@ -32,7 +32,7 @@ const PostFooterStyle = StyleSheet.create({
     leftFooterIconContainer: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        width: '40%',
+        width: '37%',
         marginTop: '13%',
     }
 })

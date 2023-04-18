@@ -1,9 +1,9 @@
 export const bottomTabIcons = [
   {
     name: 'Home',
-    active: 'https://img.icons8.com/fluency-systems-filled/144/ffffff/home.png',
+    active: 'https://img.icons8.com/fluency-systems-filled/48/FFFFFF/home.png',
     inactive:
-      'https://img.icons8.com/fluency-systems-regular/48/ffffff/home.png',
+      'https://img.icons8.com/fluency-systems-regular/48/FFFFFF/home.png',
   },
   {
     name: 'Search',
