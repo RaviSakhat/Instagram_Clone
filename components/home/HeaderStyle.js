@@ -20,7 +20,8 @@ const HeaderStyle = StyleSheet.create({
     width: 30,
     height: 30,
     marginLeft: 10,
-    resizeMode: 'contain',
+    tintColor: 'white',
+    resizeMode: 'contain'
   },
   unreadBadge: {
     backgroundColor: '#FF3250',

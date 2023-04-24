@@ -3,14 +3,22 @@ import React from 'react';
 import {HeaderStyle} from './HeaderStyle';
 import headerLogo from '../../assests/header-logo.png';
 import {useNavigation} from '@react-navigation/native';
+import {firebase} from '../../FireBase';
+
+const handleSignOut = async() => {
+  try {
+    await firebase.auth().signOut()
+      console.log('Signed Out');
+    } catch (error) {
+      console.log('error', error)
+    }
+  };
 
 const Header = () => {
-
   const navigation = useNavigation();
-
   return (
     <View style={HeaderStyle.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleSignOut}>
         <Image source={headerLogo} style={HeaderStyle.logo} />
       </TouchableOpacity>
       <View style={HeaderStyle.iconsContainer}>
