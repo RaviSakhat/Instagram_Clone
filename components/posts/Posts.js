@@ -1,4 +1,10 @@
-import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import {Divider} from 'react-native-elements';
 import {Image} from 'react-native';
@@ -17,7 +23,7 @@ const Posts = ({post}) => {
         <Likes post={post} />
         <Caption post={post} />
         <CommentSection post={post} />
-        <Comments post={post}/>
+        <Comments post={post} />
       </View>
     </View>
   );
@@ -28,7 +34,7 @@ const PostHeader = ({post}) => (
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <TouchableOpacity>
         <Image
-          source={post.profilepic}
+          source={{uri: post.profile_picture}}
           style={PostHeaderStyle.HeaderUserProfile}
         />
       </TouchableOpacity>
@@ -43,7 +49,7 @@ const PostHeader = ({post}) => (
 const PostImage = ({post}) => (
   <View style={{width: '100%', height: 350, flexDirection: 'row'}}>
     <Image
-      source={post.imageUrl}
+      source={{uri: post.imageUrl}}
       style={{flex: 1, aspectRatio: 1, width: '100%'}}
     />
   </View>
@@ -51,32 +57,34 @@ const PostImage = ({post}) => (
 
 const FooterIcon = () => (
   <View style={{flexDirection: 'row'}}>
-    <View style={PostFooterStyle.leftFooterIconContainer}>
-      <TouchableOpacity>
-        <Image
-          style={PostFooterStyle.footerIconStyle}
-          source={{
-            uri: 'https://img.icons8.com/ios/50/FFFFFF/like--v1.png',
-          }}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Image
-          style={PostFooterStyle.footerIconStyle}
-          source={{
-            uri: 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-chat-instagram-flatart-icons-outline-flatarticons.png',
-          }}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Image
-          style={PostFooterStyle.footerIconStyle}
-          source={{
-            uri: 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-send-email-flatart-icons-outline-flatarticons.png',
-          }}
-        />
-      </TouchableOpacity>
-    </View>
+    {/* <View style={PostFooterStyle.leftFooterIconContainer}> */}
+      <SafeAreaView style={PostFooterStyle.leftFooterIconContainer}>
+        <TouchableOpacity>
+          <Image
+            style={PostFooterStyle.footerIconStyle}
+            source={{
+              uri: 'https://img.icons8.com/ios/50/FFFFFF/like--v1.png',
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            style={PostFooterStyle.footerIconStyle}
+            source={{
+              uri: 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-chat-instagram-flatart-icons-outline-flatarticons.png',
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            style={PostFooterStyle.footerIconStyle}
+            source={{
+              uri: 'https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-send-email-flatart-icons-outline-flatarticons.png',
+            }}
+          />
+        </TouchableOpacity>
+      </SafeAreaView>
+    {/* </View> */}
     <View style={{flex: 1, alignItems: 'flex-end', justifyContent: 'flex-end'}}>
       <TouchableOpacity onPress={() => console.log('first')}>
         <Image

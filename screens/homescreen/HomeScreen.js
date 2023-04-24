@@ -1,24 +1,33 @@
 import {SafeAreaView, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {HomeScreenStyle} from './HomeScreenStyle';
 import Header from '../../components/home/Header';
 import Stories from '../../components/stories/Stories';
 import Posts from '../../components/posts/Posts';
-import {PostsData} from '../../data/PostsData';
+// import {Posts} from '../../data/PostsData';
 import BottomTabs from '../../components/bottomtab/BottomTabs';
-import { bottomTabIcons } from '../../assests/BottomTabIcons';
+import {bottomTabIcons} from '../../assests/BottomTabIcons';
+import {db} from '../../FireBase';
 
 const HomeScreen = () => {
+  const [PostData, setPostData] = useState([]);
+
+  useEffect(() => {
+    db.collectionGroup('posts').onSnapshot(snapShot => {
+      setPostData(snapShot.docs.map(doc => doc.data()));
+    });
+  }, []);
+
   return (
     <SafeAreaView style={HomeScreenStyle.container}>
       <Header />
       <Stories />
       <ScrollView>
-        {PostsData.map((post, index) => (
-          <Posts post = {post} key={index}/>
+        {PostData.map((post, index) => (
+          <Posts post={post} key={index} />
         ))}
       </ScrollView>
-      <BottomTabs icons={bottomTabIcons}/>
+      <BottomTabs icons={bottomTabIcons} />
     </SafeAreaView>
   );
 };
