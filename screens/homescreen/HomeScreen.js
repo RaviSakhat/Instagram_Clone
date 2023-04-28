@@ -13,8 +13,10 @@ const HomeScreen = () => {
   const [PostData, setPostData] = useState([]);
 
   useEffect(() => {
-    db.collectionGroup('posts').onSnapshot(snapShot => {
-      setPostData(snapShot.docs.map(doc => doc.data()));
+    db.collectionGroup('posts').
+    orderBy('createdAt', 'desc').
+    onSnapshot(snapShot => {
+      setPostData(snapShot.docs.map(post => ({id: post.id, ...post.data()})));
     });
   }, []);
 

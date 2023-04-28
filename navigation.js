@@ -5,6 +5,7 @@ import HomeScreen from './screens/homescreen/HomeScreen';
 import NewPostScreen from './screens/newpost/NewPostScreen';
 import SignUpScreen from './screens/signupscreen/SignUpScreen';
 import LogInScreen from './screens/loginscreen/LogInScreen';
+import ProfileScreen from './screens/profilescreen/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +18,11 @@ export const SignedInStack = () =>
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="HomeScreen"
-        screenOptions={screenOptions}>
+        screenOptions={screenOptions}
+        >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="NewPostScreen" component={NewPostScreen} />
+        <Stack.Screen name='ProfileScreen' component={ProfileScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
